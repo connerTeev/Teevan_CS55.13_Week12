@@ -9,7 +9,7 @@ export default function Layout({children, home}) {
       </Head>
       <header>
         <nav className='m-3'>
-          <a href="/">Food.com</a>
+          <Link href="/">Food.com</Link>
         </nav>
       </header>
       <main>
