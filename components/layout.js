@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-// Test
+
 export default function Layout({ children, home }) {
   return (
     <>
