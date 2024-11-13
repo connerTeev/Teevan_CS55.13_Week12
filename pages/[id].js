@@ -1,32 +1,29 @@
 import { getFruitIds, getFruitData } from '../lib/fruit_data';
-import { getVeggieIds, getVeggieData } from '../lib/veggie_data';
+
 import Layout from '../components/layout';
 
 // define getStaticProps() function - by nextJS
 export async function getStaticProps({ params }) {
   const fruitItemData = await getFruitData(params.id);
-  const veggieItemData = await getVeggieData(params.id);
   return {
     props: {
       fruitItemData,
-      veggieItemData,
     },
   };
 }
 
 // define getStaticPaths() - by nextJS
 export async function getStaticPaths() {
-  const fruitPaths = getFruitIds();
-  const veggiePaths = getVeggieIds();
+  const fruitPaths = await getFruitIds();
 
   return {
-    paths: [...fruitPaths, ...veggiePaths],
+    paths: [...fruitPaths],
     fallback: false,
   };
 }
 
 //export our dynamically routed page component 'Entry'
-export default function Entry({ fruitItemData, veggieItemData }) {
+export default function Entry({ fruitItemData }) {
   return (
     <Layout>
       <article className="card col-6">
@@ -39,16 +36,6 @@ export default function Entry({ fruitItemData, veggieItemData }) {
               </h3>
               <p className="card-text">{fruitItemData.description}</p>
               <p className="card-link">{fruitItemData.rating}</p>
-            </>
-          )}
-          {veggieItemData && (
-            <>
-              <h2 className="card-title">{veggieItemData.icon}</h2>
-              <h3 className="card-subtitle mb-2 text-body-secondary">
-                {veggieItemData.name}
-              </h3>
-              <p className="card-text">{veggieItemData.description}</p>
-              <p className="card-link">{veggieItemData.rating}</p>
             </>
           )}
         </div>

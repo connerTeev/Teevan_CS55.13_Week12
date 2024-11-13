@@ -5,11 +5,11 @@ export default function Layout({ children, home }) {
   return (
     <>
       <Head>
-        <title>Next.js App Practice</title>
+        <title>REST prcatice</title>
       </Head>
       <header>
         <nav className="m-3">
-          <Link href="/">Food.com</Link>
+          <Link href="/">REST.com</Link>
         </nav>
       </header>
       <main>{children}</main>
@@ -20,7 +20,7 @@ export default function Layout({ children, home }) {
       )}
       <footer>
         <p className="text-center m-3">
-          <em>where foodies meet foods</em>
+          <em>Where WP meets REST</em>
         </p>
       </footer>
     </>
