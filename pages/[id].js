@@ -4,9 +4,7 @@ import Layout from '../components/layout';
 
 // define getStaticProps() function - by nextJS
 export async function getStaticProps({ params }) {
-  const fruitItemData = await fetch(
-    'https://dev-teevan-fall-cs55-13.pantheonsite.io/wp-json/twentytwentyone-child/v1/latest-posts/2'
-  );
+  const fruitItemData = await getFruitData(params.id);
   const veggieItemData = await getVeggieData(params.id);
   return {
     props: {
