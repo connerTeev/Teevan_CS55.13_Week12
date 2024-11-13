@@ -15,7 +15,7 @@ export default function Home({ fruitDataList }) {
   return (
     <Layout home>
       <h1>WP REST API</h1>
-      <h2 className="m-3">Fruits</h2>
+      <h2 className="m-3">Posts</h2>
       <div className="list-group">
         {fruitDataList.map(({ id, name }) => (
           <Link
